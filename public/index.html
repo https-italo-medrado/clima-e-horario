@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌤️ Clima e Horário Mundial</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="title">🌤️ Clima e Horário</h1>
+            <p class="subtitle">Informações meteorológicas e horário mundial em tempo real</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            
+            <section class="search-section">
+                <div class="search-card">
+                    <h2>🔍 Buscar Informações</h2>
+                    
+                    <!-- Formulário de busca por cidade -->
+                    <div class="search-form">
+                        <div class="input-group">
+                            <label for="cityInput">Cidade:</label>
+                            <input 
+                                type="text" 
+                                id="cityInput" 
+                                placeholder="Ex: São Paulo, Rio de Janeiro..."
+                                autocomplete="off"
+                            >
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="timezoneSelect">Fuso Horário:</label>
+                            <select id="timezoneSelect">
+                                <option value="">Carregando timezones...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button id="searchBtn" class="btn btn-primary">
+                                🔍 Buscar
+                            </button>
+                            <button id="locationBtn" class="btn btn-secondary">
+                                📍 Usar Localização
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="results-section" id="resultsSection" style="display: none;">
+                
+                <div class="result-card weather-card">
+                    <div class="card-header">
+                        <h3>🌡️ Informações Climáticas</h3>
+                        <span class="location" id="weatherLocation">-</span>
+                    </div>
+                    
+                    <div class="weather-main">
+                        <div class="temperature">
+                            <span id="temperature">--</span>°C
+                        </div>
+                        <div class="weather-icon">
+                            <img id="weatherIcon" src="" alt="Ícone do clima" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="weather-description">
+                        <p id="weatherDescription">-</p>
+                    </div>
+                    
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="label">💧 Umidade:</span>
+                            <span id="humidity">--%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">💨 Vento:</span>
+                            <span id="windSpeed">-- km/h</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">👁️ Visibilidade:</span>
+                            <span id="visibility">-- km</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">🌡️ Sensação:</span>
+                            <span id="feelsLike">--°C</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card time-card">
+                    <div class="card-header">
+                        <h3>🕐 Horário Local</h3>
+                        <span class="timezone" id="timezoneInfo">-</span>
+                    </div>
+                    
+                    <div class="time-main">
+                        <div class="current-time">
+                            <span id="currentTime">--:--:--</span>
+                        </div>
+                        <div class="current-date">
+                            <span id="currentDate">-- de --, ----</span>
+                        </div>
+                    </div>
+                    
+                    <div class="time-details">
+                        <div class="detail-item">
+                            <span class="label">🌍 Timezone:</span>
+                            <span id="timezoneAbbr">---</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">📅 Dia do ano:</span>
+                            <span id="dayOfYear">---</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">📆 Semana:</span>
+                            <span id="weekNumber">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">🕐 UTC Offset:</span>
+                            <span id="utcOffset">---</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="loading-section" id="loadingSection" style="display: none;">
+                <div class="loading-card">
+                    <div class="spinner"></div>
+                    <p>Carregando informações...</p>
+                </div>
+            </section>
+
+            <section class="error-section" id="errorSection" style="display: none;">
+                <div class="error-card">
+                    <h3>❌ Erro</h3>
+                    <p id="errorMessage">Ocorreu um erro ao buscar as informações.</p>
+                    <button id="retryBtn" class="btn btn-primary">🔄 Tentar Novamente</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; Aplicação de Clima e Horário | APIs: OpenWeatherMap & WorldTimeAPI</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+ <!-- deixei a IA fazer um front simples -->
